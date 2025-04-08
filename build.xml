@@ -1,0 +1,95 @@
+<project name="Schema2Script800G1" default="run" basedir=".">
+
+    <property name="main.src.dir" value="src" />
+    <property name="main.build.dir" value="build/classes" />
+    <property name="test.src.dir" value="test" />
+    <property name="test.build.dir" value="build/classes-test" />
+
+    <property name="jar.dir" value="build/jar" />
+    <property name="res.dir" value="build/res" />
+    <property name="lib.dir" value="lib" />
+    <property name="javafx.dir" value="${lib.dir}/javafx-sdk-21.0.4/lib" />
+    <property name="Main.class" value="edu.rit.croatia.iste422.g1.main.Main" />
+
+    <target name="clean">
+        <delete dir="${main.build.dir}" />
+        <delete dir="${test.build.dir}" />
+        <delete dir="${res.dir}" />
+    </target>
+
+    <target name="copy-resources">
+        <mkdir dir="${res.dir}" />
+        <copy todir="${res.dir}">
+            <fileset dir="${main.src.dir}">
+                <include name="**/*.fxml" />
+                <include name="**/*.css" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile" depends="clean, copy-resources">
+        <mkdir dir="${main.build.dir}" />
+        <javac srcdir="${main.src.dir}" destdir="${main.build.dir}" includeantruntime="false">
+            <classpath>
+                <fileset dir="${lib.dir}">
+                    <include name="*.jar" />
+                </fileset>
+                <fileset dir="${javafx.dir}">
+                    <include name="*.jar" />
+                </fileset>
+            </classpath>
+            <compilerarg value="--module-path" />
+            <compilerarg path="${javafx.dir}" />
+            <compilerarg value="--add-modules" />
+            <compilerarg value="javafx.controls,javafx.fxml,javafx.graphics,javafx.base" />
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}" />
+        <jar destfile="${jar.dir}/Schema2Script800G1-v.0.0.0.jar" basedir="${main.build.dir}">
+            <zipgroupfileset dir="lib" includes="**/*.jar" />
+            <fileset dir="src" includes="edu/rit/croatia/iste422/g1/view/*.fxml" />
+            <manifest>
+                <attribute name="Main-Class" value="${Main.class}" />
+                <attribute name="Class-Path" value="." />
+                <attribute name="Multi-Release" value="true" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="build/libs/Schema2Script800G1-v.0.0.0.jar" fork="true">
+            <classpath>
+                <pathelement path="build/libs/Schema2Script800G1-v.0.0.0.jar" />
+            </classpath>
+            <jvmarg value="--module-path" />
+            <jvmarg path="${javafx.dir}" />
+            <jvmarg value="--add-modules" />
+            <jvmarg value="javafx.controls,javafx.fxml,javafx.graphics,javafx.base" />
+        </java>
+    </target>
+
+
+    <target name="javadoc" depends="compile">
+        <javadoc destdir="doc" sourcepath="${main.src.dir}" classpath="${main.build.dir}">
+            <arg value="-quiet"/> 
+            <arg value="-author"/> 
+            <fileset dir="${main.src.dir}">
+                <include name="**/*.java" />
+            </fileset>
+            <classpath>
+                <!-- Include build classes -->
+                <pathelement path="${main.build.dir}" />
+                <!-- Include libraries (Log4j, JavaFX) -->
+                <fileset dir="${lib.dir}">
+                    <include name="*.jar" />
+                </fileset>
+                <fileset dir="${javafx.dir}">
+                    <include name="*.jar" />
+                </fileset>
+            </classpath>
+        </javadoc>        
+    </target>    
+
+</project>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="775.0" prefWidth="1446.0" xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="openFileMenu" mnemonicParsing="false" text="Open..." />
+                  <MenuItem fx:id="saveFileMenu" mnemonicParsing="false" text="Save as..." />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefWidth="854.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TextField fx:id="header1" layoutX="165.0" layoutY="22.0" />
+            <TableView fx:id="student" layoutX="35.0" layoutY="63.0" prefHeight="200.0"
+               prefWidth="408.0">
+               <columns>
+                  <TableColumn fx:id="tableView1name" prefWidth="173.60000610351562" text="Name" />
+                  <TableColumn fx:id="tableView1type" prefWidth="183.20001220703125" text="Type" />
+               </columns>
+            </TableView>
+            <Button fx:id="editTable1" layoutX="333.0" layoutY="22.0" mnemonicParsing="false"
+               text="Edit" />
+            <Button fx:id="deleteTable1" layoutX="384.0" layoutY="22.0" mnemonicParsing="false"
+               text="Delete" />
+            <TextField fx:id="header2" layoutX="594.0" layoutY="22.0" />
+            <TableView fx:id="instructor" layoutX="465.0" layoutY="63.0" prefHeight="200.0" prefWidth="408.0">
+               <columns>
+                  <TableColumn fx:id="tableView2name" prefWidth="173.60000610351562" text="Name" />
+                  <TableColumn fx:id="tableView2type" prefWidth="183.20001220703125" text="Type" />
+               </columns>
+            </TableView>
+            <Button fx:id="editTable2" layoutX="764.0" layoutY="22.0" mnemonicParsing="false"
+               text="Edit" />
+            <Button fx:id="deleteTable2" layoutX="815.0" layoutY="22.0" mnemonicParsing="false"
+               text="Delete" />
+            <TextField fx:id="header3" layoutX="165.0" layoutY="405.0" />
+            <TableView fx:id="course" layoutX="36.0" layoutY="449.0" prefHeight="200.0" prefWidth="408.0">
+               <columns>
+                  <TableColumn fx:id="tableView3name" prefWidth="173.60000610351562" text="Name" />
+                  <TableColumn fx:id="tableView3type" prefWidth="183.20001220703125" text="Type" />
+               </columns>
+            </TableView>
+            <Button fx:id="editTable3" layoutX="333.0" layoutY="405.0" mnemonicParsing="false"
+               text="Edit" />
+            <Button fx:id="deleteTable3" layoutX="384.0" layoutY="405.0" mnemonicParsing="false"
+               text="Delete" />
+            <TextField fx:id="header4" layoutX="594.0" layoutY="405.0" />
+            <TableView fx:id="enrollment" layoutX="465.0" layoutY="449.0" prefHeight="200.0" prefWidth="408.0">
+               <columns>
+                  <TableColumn fx:id="tableView4name" prefWidth="173.60000610351562" text="Name" />
+                  <TableColumn fx:id="tableView4type" prefWidth="183.20001220703125" text="Type" />
+               </columns>
+            </TableView>
+            <Button fx:id="editTable4" layoutX="764.0" layoutY="405.0" mnemonicParsing="false"
+               text="Edit" />
+            <Button fx:id="deleteTable4" layoutX="815.0" layoutY="405.0" mnemonicParsing="false"
+               text="Delete" />
+            <Text layoutX="1153.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SQL">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="generatedCodeTA" layoutX="989.0" layoutY="138.0" prefHeight="499.0"
+               prefWidth="408.0" />
+            <TextField fx:id="relations1TF" layoutX="35.0" layoutY="276.0" prefHeight="44.0"
+               prefWidth="408.0" />
+            <TextField fx:id="relations2TF" layoutX="465.0" layoutY="276.0" prefHeight="44.0"
+               prefWidth="408.0" />
+            <TextField fx:id="relations3TF" layoutX="35.0" layoutY="660.0" prefHeight="44.0"
+               prefWidth="408.0" />
+            <TextField fx:id="relations4TF" layoutX="465.0" layoutY="660.0" prefHeight="44.0"
+               prefWidth="408.0" />
+            <Button fx:id="setFKButton" layoutX="906.0" layoutY="664.0" mnemonicParsing="false"
+               text="Set FK">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <VBox fx:id="tableContainer" layoutX="35.0" layoutY="63.0" prefWidth="850.0" />
+            <MenuButton layoutX="1143.0" layoutY="89.0" mnemonicParsing="false" text="Choose DB">
+               <items>
+                  <MenuItem fx:id="generateMySQLCodeButton" mnemonicParsing="false"
+                     text="Generate MySQL" />
+                  <MenuItem fx:id="generateOracleCodeButton" mnemonicParsing="false"
+                     text="Generate Oracle" />
+                  <MenuItem fx:id="generatePostgreSQLCodeButton" mnemonicParsing="false"
+                     text="Generate PostgreSQL" />
+               </items>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

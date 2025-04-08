@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+      <Property name="FileLogger">log/Schema2Script.log</Property>
+    </Properties> 
+    
+    <Appenders>
+      <Console name="STDOUT">
+          <PatternLayout pattern="%-5p %c %m%n"/>
+      </Console>
+      <File name="FILE" fileName="${FileLogger}">
+          <PatternLayout>                
+              <Pattern>
+                    %d{yyyy-MM-dd HH:mm:ss.SSS} %p %c:%L - %m%xThrowable{separator(|)}%n
+              </Pattern>                
+          </PatternLayout>
+      </File>
+    </Appenders>
+ 
+    <Loggers>     
+      <Logger name="edu.rit.iste422.800.group1.schema2script" level="info">
+        <AppenderRef ref="FILE"/>
+      </Logger>
+
+      <Root level="debug">
+          <AppenderRef ref="STDOUT"/>  
+          <AppenderRef ref="FILE"/>
+      </Root>
+    </Loggers>
+</Configuration>
